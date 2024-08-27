@@ -10,6 +10,7 @@ const Quiz = () => {
   const [answers, setAnswers] = useState([]);
   const [showScore, setShowScore] = useState(false);
   const [quizData, setQuizData] = useState(null); // quizDataを状態として宣言
+  const [currentAnswer, setCurrentAnswer] = useState(null); // 現在の回答情報を保持する状態
 
   // データを非同期で取得
   useEffect(() => {
@@ -23,6 +24,7 @@ const Quiz = () => {
       question: quizData[currentQuestion].question,
       options: quizData[currentQuestion].options,
       answer: answer,
+      correctAnswer: quizData[currentQuestion].correct, // 正解を保持
       correct: quizData[currentQuestion].correct === answer,
     };
 
@@ -34,6 +36,7 @@ const Quiz = () => {
     }
 
     setAnswers((prevAnswers) => [...prevAnswers, newAnswer]);
+    setCurrentAnswer(newAnswer); // currentAnswerにセット
     setNext(true);
   };
 
@@ -48,6 +51,7 @@ const Quiz = () => {
 
     setNext(false);
     setFeedback(null);
+    setCurrentAnswer(null); // 次の質問に移る際にcurrentAnswerをリセット
   };
 
   const navigate = useNavigate();
