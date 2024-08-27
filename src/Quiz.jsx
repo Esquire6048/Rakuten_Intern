@@ -101,12 +101,15 @@ const Quiz = () => {
           {next ? (
             <div className="feedback-section">
               <h2 className="large-feedback">{feedback}</h2>
+              {currentAnswer && !currentAnswer.correct && (
+                <p>間違った答え: {currentAnswer.answer}</p>
+              )}
               <p>解答</p>
               <p>{quizData[currentQuestion].correct}</p>
               <p>解説</p>
               <p>{quizData[currentQuestion].explanation}</p>
               <p>商品URL</p>
-              <p><a href={quizData[currentQuestion].url}>{quizData[currentQuestion].url}</a></p>
+              <p><a target="_blank" rel="noopener noreferrer" href={quizData[currentQuestion].url}>{quizData[currentQuestion].url}</a></p>
               <button onClick={goToNextQuestion}>次の問題へ</button>
             </div>
           ) : (
