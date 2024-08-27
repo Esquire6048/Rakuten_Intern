@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import { useNavigate } from "react-router-dom";
 
@@ -9,6 +9,14 @@ const Quiz = () => {
   const [score, setScore] = useState(0);
   const [answers, setAnswers] = useState([]);
   const [showScore, setShowScore] = useState(false);
+  const [quizData, setQuizData] = useState(null); // quizDataを状態として宣言
+
+  // データを非同期で取得
+  useEffect(() => {
+    fetch('/questions.json')
+      .then(response => response.json())
+      .then(data => setQuizData(data)); // 状態にセット
+  }, []);
 
   const handleAnswer = (answer) => {
     const newAnswer = {
@@ -18,12 +26,10 @@ const Quiz = () => {
       correct: quizData[currentQuestion].correct === answer,
     };
 
-    //解答が正解の場合
     if (newAnswer.correct) {
       setScore((prevScore) => prevScore + 1);
       setFeedback("●");
     } else {
-      //不正解の場合
       setFeedback("×");
     }
 
@@ -47,9 +53,13 @@ const Quiz = () => {
   const navigate = useNavigate();
   const navigateToHome = () => {
     navigate("/");
-  }
+  };
   const navigateToQuiz = () => {
     window.location.reload();
+  };
+
+  if (!quizData) {
+    return <div>Loading...</div>; // データが読み込まれるまで「Loading...」を表示
   }
 
   return (
@@ -118,21 +128,4 @@ const Quiz = () => {
   );
 };
 
-export default Quiz
-
-const quizData = [
-  {
-    question: "今のインターンの会社は？",
-    options: ["楽天", "Dena", "Lineヤフー", "サイバーエージェント"],
-    correct: "楽天",
-    explanation: "解説解説",
-    url: "https://www.rakuten.co.jp/"
-  },
-  {
-    question: "次のうち、哺乳類ではない動物はどれですか？",
-    options: ["カンガルー", "カンガルー", "ペンギン", "カバ"],
-    correct: "ペンギン",
-    explanation: "解説解説",
-    url: "https://www.rakuten.co.jp/"
-  }
-];
+export default Quiz;
