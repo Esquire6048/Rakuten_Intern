@@ -78,13 +78,12 @@ const Quiz = () => {
                 <td>合否</td>
               </tr>
             </thead>
-
             <tbody>
               {answers.map((item, index) => (
                 <tr className={item.correct ? "correct" : "wrong"} key={index}>
                   <td>{item.question}</td>
                   <td>{item.answer}</td>
-                  <td>{item.correct ? "●" : "×"}</td>
+                  <td>{item.correct ? "○" : "×"}</td>
                 </tr>
               ))}
             </tbody>
@@ -107,7 +106,8 @@ const Quiz = () => {
               <p>{quizData[currentQuestion].explanation}</p>
               <p>商品URL</p>
               <p><a href={quizData[currentQuestion].url}>{quizData[currentQuestion].url}</a></p>
-              <button onClick={goToNextQuestion}>次の問題へ</button>
+              <button onClick={goToNextQuestion}>{currentQuestion + 1 === quizData.length ? "スコアを見る" : "次の問題へ"}</button>
+              <button onClick={navigateToHome}>タイトルに戻る</button>
             </div>
           ) : (
             <div className="answer-section">
@@ -120,6 +120,7 @@ const Quiz = () => {
                   {option}
                 </button>
               ))}
+              <button onClick={navigateToHome} className="answer-section-gohome">タイトルに戻る</button>
             </div>
           )}
         </div>
