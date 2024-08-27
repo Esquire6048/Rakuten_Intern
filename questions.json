@@ -1,48 +1,18 @@
 [
-    {
-        "id": "1",
-        "questionText": "What is the capital of France?",
-        "answerOptions": [
-            { "answerText": "Berlin", "isCorrect": false },
-            { "answerText": "Madrid", "isCorrect": false },
-            { "answerText": "Paris", "isCorrect": true },
-            { "answerText": "Lisbon", "isCorrect": false }
-        ],
-        "explanation": "Berlin is the capital of Germany.",
-        "productsKeyword": "Paris",
-        "productsURL": [
-            "https://item.rakuten.co.jp/bookoffonline/0019178323/"
-        ]
-    },
-    {
-        "id": "2",
-        "questionText": "Who is the CEO of Tesla?",
-        "answerOptions": [
-            { "answerText": "Jeff Bezos", "isCorrect": false },
-            { "answerText": "Elon Musk", "isCorrect": true },
-            { "answerText": "Bill Gates", "isCorrect": false },
-            { "answerText": "Tony Stark", "isCorrect": false }
-        ],
-        "explanation": "Jeff Bezos is the CEO of Amazon.",
-        "productsKeyword": "Amazon",
-        "productsURL": [
-            "https://item.rakuten.co.jp/tesla/t11whtz/"
-        ]
-    },
-    {
-        "id": "3",
-        "questionText": "今のインターンの会社は？",
-        "answerOptions": [
-          { "answerText": "楽天", "isCorrect": true },
-          { "answerText": "DeNA", "isCorrect": false },
-          { "answerText": "Lineヤフー", "isCorrect": false },
-          { "answerText": "サイバーエージェント", "isCorrect": false }
-        ],
-        "explanation": "楽天グループ株式会社は東京都世田谷区に本社を置く、インターネット関連サービスを中心に展開する日本の企業。",
-        "productsKeyword": "楽天",
-        "productsURL": [
-            "https://item.rakuten.co.jp/tanehyo/tki-059-3/"
-        ]
-    }
+  {
+    "id": "1",
+    "question": "今のインターンの会社は？",
+    "options": ["楽天", "Dena", "Lineヤフー", "サイバーエージェント"],
+    "correct": "楽天",
+    "explanation": "解説解説",
+    "url": "https://www.rakuten.co.jp/"
+  },
+  {
+    "id": "2",
+    "question": "次のうち、哺乳類ではない動物はどれですか？",
+    "options": ["カンガルー", "カンガルー", "ペンギン", "カバ"],
+    "correct": "ペンギン",
+    "explanation": "解説解説",
+    "url": "https://www.rakuten.co.jp/"
+  }
 ]
-  
