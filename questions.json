@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "question": "今のインターンの会社は？",
+    "options": ["楽天", "Dena", "Lineヤフー", "サイバーエージェント"],
+    "correct": "楽天",
+    "explanation": "解説解説",
+    "keyword": "楽天",
+    "url": "https://www.rakuten.co.jp/"
+  },
+  {
+    "id": "2",
+    "question": "次のうち、哺乳類ではない動物はどれですか？",
+    "options": ["カンガルー", "カンガルー", "ペンギン", "カバ"],
+    "correct": "ペンギン",
+    "explanation": "解説解説",
+    "keyword": "ペンギン",
+    "url": "https://www.rakuten.co.jp/"
+  }
+]
