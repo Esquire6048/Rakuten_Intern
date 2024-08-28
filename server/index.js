@@ -10,7 +10,7 @@ const db = mysql.createPool({
     host: 'localhost',
     user: 'testuser',
     password: 'password',
-    database: 'quiz_db_new',
+    database: 'rakuten_bousai_quiz_db',
 });
 
 app.get("/api/questions", (req, res) => {
