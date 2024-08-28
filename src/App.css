@@ -27,7 +27,7 @@
 }
 
 h1 {
-  color: #2c3e50;
+  color: #333;
   font-size: 2.5em;
   margin-bottom: 10px;
 }
@@ -39,7 +39,7 @@ h1 {
 }
 
 h2 {
-  color: #34495e;
+  color: #333;
   font-size: 1.75em;
   margin-bottom: 20px;
 }
@@ -49,7 +49,7 @@ button {
   font-size: 1.2em;
   margin: 10px;
   cursor: pointer;
-  background-color: #3498db;
+  background-color: #BF0000;
   color: white;
   border: none;
   border-radius: 6px;
@@ -67,11 +67,11 @@ button:hover {
 }
 
 .wrong {
-  color: red;
+  color: #BF0000;
 }
 
 .feedback-section p {
-  color: #2c3e50;
+  color: #BF0000;
   font-size: 1.2em;
   margin-bottom: 10px;
 }
@@ -79,7 +79,7 @@ button:hover {
 .large-feedback {
   font-size: 2.5em;
   font-weight: bold;
-  color: #3498db;
+  color: #BF0000;
   margin-bottom: 20px;
 }
 
@@ -125,19 +125,19 @@ button:hover {
 }
 
 .option-0 {
-  background-color: #e74c3c;
+  background-color: #BF0000;
 }
 
 .option-1 {
-  background-color: #27ae60;
+  background-color: #BF0000;
 }
 
 .option-2 {
-  background-color: #2980b9;
+  background-color: #BF0000;
 }
 
 .option-3 {
-  background-color: #8e44ad;
+  background-color: #BF0000;
 }
 
 .option-0:hover,
