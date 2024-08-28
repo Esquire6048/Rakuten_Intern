@@ -10,7 +10,7 @@ const Quiz = () => {
   const [answers, setAnswers] = useState([]);
   const [showScore, setShowScore] = useState(false);
   const [quizData, setQuizData] = useState(null); // quizDataを状態として宣言
-  const [currentAnswer, setCurrentAnswer] = useState(null); // 現在の回答情報を保持する状態
+  const [currentAnswer, setCurrentAnswer] = useState(null);
 
   // データを非同期で取得
   useEffect(() => {
@@ -24,7 +24,7 @@ const Quiz = () => {
       question: quizData[currentQuestion].question,
       options: quizData[currentQuestion].options,
       answer: answer,
-      correctAnswer: quizData[currentQuestion].correct, // 正解を保持
+      correctAnswer: quizData[currentQuestion].correct,
       correct: quizData[currentQuestion].correct === answer,
     };
 
@@ -36,7 +36,7 @@ const Quiz = () => {
     }
 
     setAnswers((prevAnswers) => [...prevAnswers, newAnswer]);
-    setCurrentAnswer(newAnswer); // currentAnswerにセット
+    setCurrentAnswer(newAnswer);
     setNext(true);
   };
 
@@ -51,7 +51,7 @@ const Quiz = () => {
 
     setNext(false);
     setFeedback(null);
-    setCurrentAnswer(null); // 次の質問に移る際にcurrentAnswerをリセット
+    setCurrentAnswer(null);
   };
 
   const navigate = useNavigate();
@@ -82,13 +82,12 @@ const Quiz = () => {
                 <td>合否</td>
               </tr>
             </thead>
-
             <tbody>
               {answers.map((item, index) => (
                 <tr className={item.correct ? "correct" : "wrong"} key={index}>
                   <td>{item.question}</td>
                   <td>{item.answer}</td>
-                  <td>{item.correct ? "●" : "×"}</td>
+                  <td>{item.correct ? "○" : "×"}</td>
                 </tr>
               ))}
             </tbody>
@@ -113,8 +112,9 @@ const Quiz = () => {
               <p>解説</p>
               <p>{quizData[currentQuestion].explanation}</p>
               <p>商品URL</p>
-              <p><a target="_blank" rel="noopener noreferrer" href={quizData[currentQuestion].url}>{quizData[currentQuestion].url}</a></p>
-              <button onClick={goToNextQuestion}>次の問題へ</button>
+              <p><a href={quizData[currentQuestion].url}>{quizData[currentQuestion].url}</a></p>
+              <button onClick={goToNextQuestion}>{currentQuestion + 1 === quizData.length ? "スコアを見る" : "次の問題へ"}</button>
+              <button onClick={navigateToHome}>タイトルに戻る</button>
             </div>
           ) : (
             <div className="answer-section">
@@ -127,6 +127,7 @@ const Quiz = () => {
                   {option}
                 </button>
               ))}
+              <button onClick={navigateToHome} className="answer-section-gohome">タイトルに戻る</button>
             </div>
           )}
         </div>
