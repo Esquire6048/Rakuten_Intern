@@ -10,6 +10,7 @@ const Quiz = () => {
   const [answers, setAnswers] = useState([]);
   const [showScore, setShowScore] = useState(false);
   const [quizData, setQuizData] = useState(null); // quizDataを状態として宣言
+  const [currentAnswer, setCurrentAnswer] = useState(null);
 
   // データを非同期で取得
   useEffect(() => {
@@ -23,6 +24,7 @@ const Quiz = () => {
       question: quizData[currentQuestion].question,
       options: quizData[currentQuestion].options,
       answer: answer,
+      correctAnswer: quizData[currentQuestion].correct,
       correct: quizData[currentQuestion].correct === answer,
     };
 
@@ -34,6 +36,7 @@ const Quiz = () => {
     }
 
     setAnswers((prevAnswers) => [...prevAnswers, newAnswer]);
+    setCurrentAnswer(newAnswer);
     setNext(true);
   };
 
@@ -48,6 +51,7 @@ const Quiz = () => {
 
     setNext(false);
     setFeedback(null);
+    setCurrentAnswer(null);
   };
 
   const navigate = useNavigate();
@@ -100,6 +104,9 @@ const Quiz = () => {
           {next ? (
             <div className="feedback-section">
               <h2 className="large-feedback">{feedback}</h2>
+              {currentAnswer && !currentAnswer.correct && (
+                <p>間違った答え: {currentAnswer.answer}</p>
+              )}
               <p>解答</p>
               <p>{quizData[currentQuestion].correct}</p>
               <p>解説</p>

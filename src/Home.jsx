@@ -10,7 +10,9 @@ const Home = () => {
     <div className="home">
       <h1>楽天ポイント2倍！防災クイズ</h1>
       <button onClick={navigateToQuiz}>クイズにチャレンジ</button>
-      <button onClick={() => window.location.href = 'https://www.rakuten.co.jp'}>Return to Rakuten Ichiba</button>
+      <a target="_blank" rel="noopener noreferrer" href="https://www.rakuten.co.jp">
+        <button>楽天市場に戻る</button>
+      </a>
     </div>
   );
 }
