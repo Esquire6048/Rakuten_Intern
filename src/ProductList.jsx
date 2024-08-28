@@ -15,7 +15,7 @@ const Product = ({ item }) => {
           <p className="product-name">
             {item.itemName}
           </p>
-          <p className="product-price">¥{item.itemPrice}円</p>
+          <p className="product-price">{item.itemPrice}円</p>
         </div>
       </div>
     </a>
