@@ -103,22 +103,28 @@ const Quiz = () => {
           </h1>
           <h2>{quizData[currentQuestion].question}</h2>
           {next ? (
-            <div className="feedback-section">
-              <h2 className="large-feedback">{feedback}</h2>
-              {currentAnswer && !currentAnswer.correct && (
-                <p>間違った答え: {currentAnswer.answer}</p>
-              )}
-              <p>解答：{quizData[currentQuestion].correct}</p>
-              <p>解説：{quizData[currentQuestion].explanation}</p>
-              <p>商品URL：<a target="_blank" rel="noopener noreferrer" href={quizData[currentQuestion].url}>{quizData[currentQuestion].url}</a></p>
-              <button onClick={goToNextQuestion}>{currentQuestion + 1 === quizData.length ? "スコアを見る" : "次の問題へ"}</button>
-              <button onClick={navigateToHome}>タイトルに戻る</button>
-            </div>
-          ) : (
-            <div className="answer-section">
-              {quizData[currentQuestion].options.map((option, index) => (
+              <div className="feedback-section">
+                <h2 className="large-feedback">{feedback}</h2>
+                {currentAnswer && !currentAnswer.correct && (
+                    <p>間違った答え: {currentAnswer.answer}</p>
+                )}
+                <p>解答：{quizData[currentQuestion].correct}</p>
+                <p>解説：{quizData[currentQuestion].explanation}</p>
+                <p>商品URL：<a target="_blank" rel="noopener noreferrer"
+                              href={quizData[currentQuestion].url}>{quizData[currentQuestion].url}</a></p>
+                <div>
+                  <h2>{quizData[currentQuestion].keyword}に関連する商品</h2>
+                  <ProductList keyword={quizData[currentQuestion].keyword}/>
+                </div>
                 <button
-                  className={`quiz-option-button option-${index}`}
+                    onClick={goToNextQuestion}>{currentQuestion + 1 === quizData.length ? "スコアを見る" : "次の問題へ"}</button>
+                <button onClick={navigateToHome}>タイトルに戻る</button>
+              </div>
+          ) : (
+              <div className="answer-section">
+                {quizData[currentQuestion].options.map((option, index) => (
+                    <button
+                        className={`quiz-option-button option-${index}`}
                   key={index}
                   onClick={() => handleAnswer(option)}
                 >
