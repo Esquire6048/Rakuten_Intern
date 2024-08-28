@@ -30,7 +30,7 @@ const Quiz = () => {
 
     if (newAnswer.correct) {
       setScore((prevScore) => prevScore + 1);
-      setFeedback("●");
+      setFeedback("○");
     } else {
       setFeedback("×");
     }

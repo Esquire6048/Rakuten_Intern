@@ -75,13 +75,6 @@ button:hover {
 }
 
 .large-feedback {
-  font-size: 2.5em;
-  font-weight: bold;
-  color: #BF0000;
-  margin-bottom: 20px;
-}
-
-.large-feedback {
   font-size: 5em;
   /* フィードバックの大きさ */
   color: #007bff;
@@ -142,6 +135,7 @@ button:hover {
 .option-1:hover,
 .option-2:hover,
 .option-3:hover {
+  background-color: #000;
   transform: scale(1.05);
 }
 
@@ -162,7 +156,6 @@ button:hover {
 }
 
 .score-section {
-  background-color: #ecf0f1;
   padding: 40px;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
