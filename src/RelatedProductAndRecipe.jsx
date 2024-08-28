@@ -12,7 +12,7 @@ const RelatedProductAndRecipe = ({ category, relatedKeyword }) => {
     } else if (category === "recipe") {
         return (<div>
             <h2>関連するレシピ</h2>
-            <RecipeList recipeKeyword={relatedKeyword}/>
+            <RecipeList recipeID={relatedKeyword}/>
         </div>)
     } else {
         /* empty */

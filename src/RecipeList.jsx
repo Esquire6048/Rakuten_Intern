@@ -23,7 +23,7 @@ const RecipeResult = ({ item }) => {
     );
 };
 
-const RecipeList = ({ recipeKeyword }) => {
+const RecipeList = ({ recipeID }) => {
     const [recipeData, setRecipeData] = useState(null);
     const initialRender = useRef(true);
 
@@ -33,15 +33,15 @@ const RecipeList = ({ recipeKeyword }) => {
             return;
         }
 
-        if (recipeKeyword) {
-            const apiUrl = `https://app.rakuten.co.jp/services/api/Recipe/CategoryRanking/20170426?format=json&categoryId=${recipeKeyword}&applicationId=1077188838370490177`;
+        if (recipeID) {
+            const apiUrl = `https://app.rakuten.co.jp/services/api/Recipe/CategoryRanking/20170426?format=json&categoryId=${recipeID}&applicationId=1077188838370490177`;
 
             fetch(apiUrl)
                 .then(response => response.json())
                 .then(data => setRecipeData(data))
                 .catch(error => console.error('Error fetching the recipe data:', error));
         }
-    }, [recipeKeyword]);
+    }, [recipeID]);
 
     if (!recipeData) {
         return <div>Loading...</div>;
