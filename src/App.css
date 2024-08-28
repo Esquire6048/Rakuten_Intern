@@ -13,6 +13,24 @@
   color: #BF0000;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out forwards;
+  opacity: 0;
+  /* 最初は非表示 */
+}
+
 .quiz-container {
   text-align: center;
   display: flex;
@@ -157,6 +175,7 @@ button:hover {
 }
 
 .quiz-option-button {
+  opacity: 0;
   padding: 12px 20px;
   font-size: 1.2em;
   cursor: pointer;

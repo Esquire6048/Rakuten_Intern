@@ -12,6 +12,7 @@ const Quiz = () => {
   const [showScore, setShowScore] = useState(false);
   const [quizData, setQuizData] = useState(null); // quizDataを状態として宣言
   const [currentAnswer, setCurrentAnswer] = useState(null);
+  const [fadeInClass, setFadeInClass] = useState([]);
   const apiConfig = {
     //環境変数: root の .env に対応
     apiUrl: import.meta.env.VITE_API_URL,
@@ -42,6 +43,19 @@ const Quiz = () => {
       });
   }, []);
 
+  useEffect(() => {
+    if (quizData) {
+      // 各ボタンにフェードインアニメーションを時間差で適用
+      const newFadeInClass = [];
+      quizData[currentQuestion].options.forEach((_, index) => {
+        setTimeout(() => {
+          newFadeInClass[index] = "fade-in";
+          setFadeInClass([...newFadeInClass]);
+        }, index * 200); // 200msごとに次のボタンがフェードイン
+      });
+    }
+  }, [quizData, currentQuestion]);
+
   const handleAnswer = (answer) => {
     const newAnswer = {
       question: quizData[currentQuestion].question,
@@ -68,6 +82,7 @@ const Quiz = () => {
 
     if (nextQuestion < quizData.length) {
       setCurrentQuestion(nextQuestion);
+      setFadeInClass([]);
     } else {
       setShowScore(true);
     }
@@ -144,7 +159,7 @@ const Quiz = () => {
             <div className="answer-section">
               {quizData[currentQuestion].options.map((option, index) => (
                 <button
-                  className={`quiz-option-button option-${index}`}
+                  className={`quiz-option-button option-${index} ${fadeInClass[index] || ""}`}
                   key={index}
                   onClick={() => handleAnswer(option)}
                 >
