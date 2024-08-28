@@ -65,7 +65,6 @@ button {
 }
 
 button:hover {
-  background-color: #2980b9;
   transform: scale(1.05);
 }
 
@@ -88,19 +87,21 @@ button:hover {
 }
 
 .large-feedback {
-  font-size: 15em;
+  font-size: 10em;
   /* フィードバックの大きさ */
   color: #007bff;
-  margin: 0px 0;
+  margin-top: 10px;   /* 上のマージン */
+  margin-bottom: -20px; /* 下のマージン */
   animation: feedbackAnimation 1s ease-out;
   /* アニメーションを追加 */
 }
 
 .large-feedback-text {
-  font-size: 5em;
+  font-size: 3em;
   /* フィードバックの大きさ */
   color: #007bff;
-  margin: 10px 0;
+  margin-top: 0px;   /* 上のマージン */
+  margin-bottom: 50px; /* 下のマージン */
   animation: feedbackAnimation 1s ease-out;
   /* アニメーションを追加 */
 }
@@ -157,7 +158,7 @@ button:hover {
 .option-1:hover,
 .option-2:hover,
 .option-3:hover {
-  background-color: #000;
+  background-color: #ff0000;
   transform: scale(1.05);
 }
 

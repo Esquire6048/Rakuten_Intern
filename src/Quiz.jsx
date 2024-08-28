@@ -104,7 +104,7 @@ const Quiz = () => {
             {score}/{quizData.length}
           </h2>
           <h2 className="get-point">
-            <span>{score}</span>ポイント獲得！
+            楽天ポイント <span>{score}</span> ポイント獲得！
           </h2>
           <table className="answer-table">
             <thead>
@@ -138,9 +138,9 @@ const Quiz = () => {
               <h2 className={`large-feedback ${feedbackClass}`}>{feedback}</h2>
               <h2 className={`large-feedback-text ${feedbackClass}`}>{feedbackMessage}</h2>
               {currentAnswer && !currentAnswer.correct && (
-                <p>間違った答え: {currentAnswer.answer}</p>
+                <p>あなたの解答: {currentAnswer.answer}</p>
               )}
-              <p>解答：{quizData[currentQuestion].correct}</p>
+              <p>正答：{quizData[currentQuestion].correct}</p>
               <p>解説：{quizData[currentQuestion].explanation}</p>
               <div>
                 {quizData[currentQuestion].keyword && (
