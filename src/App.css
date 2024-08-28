@@ -39,11 +39,16 @@ h1 {
   font-weight: bold;
 }
 
-h2 {
+h2,
+h3 {
   color: #333;
   font-size: 1.8em;
   margin-top: 15px;
   margin-bottom: 20px;
+}
+
+.get-point span {
+  color: #BF0000;
 }
 
 button {

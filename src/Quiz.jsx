@@ -97,6 +97,9 @@ const Quiz = () => {
           <h2 className="final-score">
             {score}/{quizData.length}
           </h2>
+          <h2 className="get-point">
+            <span>{score}</span>ポイント獲得！
+          </h2>
           <table className="answer-table">
             <thead>
               <tr>
