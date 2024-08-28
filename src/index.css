@@ -32,7 +32,6 @@ body {
 }
 
 h1 {
-  font-size: 3.2em;
   line-height: 1.1;
 }
 
@@ -49,7 +48,7 @@ button {
 }
 
 button:hover {
-  border-color: #646cff;
+  background-color: #BF0000;
 }
 
 button:focus,
@@ -64,10 +63,6 @@ button:focus-visible {
   }
 
   a:hover {
-    color: #747bff;
-  }
-
-  button {
-    background-color: #f9f9f9;
+    color: #BF0000;
   }
 }

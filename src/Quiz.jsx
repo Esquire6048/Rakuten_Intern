@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import { useNavigate } from "react-router-dom";
+import ProductList from "./ProductList";
 
 const Quiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -30,7 +31,7 @@ const Quiz = () => {
 
     if (newAnswer.correct) {
       setScore((prevScore) => prevScore + 1);
-      setFeedback("●");
+      setFeedback("○");
     } else {
       setFeedback("×");
     }
@@ -109,7 +110,10 @@ const Quiz = () => {
               )}
               <p>解答：{quizData[currentQuestion].correct}</p>
               <p>解説：{quizData[currentQuestion].explanation}</p>
-              <p>商品URL：<a target="_blank" rel="noopener noreferrer" href={quizData[currentQuestion].url}>{quizData[currentQuestion].url}</a></p>
+              <div>
+                <h2>{quizData[currentQuestion].keyword}に関連する商品</h2>
+                <ProductList keyword={quizData[currentQuestion].keyword} />
+              </div>
               <button onClick={goToNextQuestion}>{currentQuestion + 1 === quizData.length ? "スコアを見る" : "次の問題へ"}</button>
               <button onClick={navigateToHome}>タイトルに戻る</button>
             </div>
