@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
-// import "./RecipeList.css";
+import "./RecipeList.css";
 
 const RecipeResult = ({ item }) => {
     return (
