@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import "./ProductList.css";
+import { MdChevronRight, MdChevronLeft } from 'react-icons/md';
 
 const Product = ({ item }) => {
     return (
@@ -58,13 +59,17 @@ const ProductList = ({ keyword }) => {
 
     return (
         <div className="product-carousel">
-            <button onClick={handlePrevious} className="carousel-button carousel-button-left">Previous</button>
+            <button onClick={handlePrevious} className="carousel-button carousel-button-left">
+                <MdChevronLeft/>
+            </button>
             <div className="product-list">
                 {getCurrentItems().map((product, index) => (
                     <Product key={index} item={product.Item} />
                 ))}
             </div>
-            <button onClick={handleNext} className="carousel-button carousel-button-right">Next</button>
+            <button onClick={handleNext} className="carousel-button carousel-button-right">
+                <MdChevronRight/>
+            </button>
         </div>
     );
 };

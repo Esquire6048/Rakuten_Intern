@@ -61,8 +61,11 @@
     padding: 8px 16px;
     cursor: pointer;
     z-index: 1; /* 确保按钮在商品列表上方 */
-    background-color: #ddd; /* 可选：为按钮添加背景颜色 */
     border: none; /* 可选：去掉按钮的边框 */
+}
+
+.carousel-button:focus {
+    outline: none; /* 去掉焦点时的轮廓 */
 }
 
 .carousel-button-left {
