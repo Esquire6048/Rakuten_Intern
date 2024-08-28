@@ -15,7 +15,7 @@ const Product = ({ item }) => {
           <p className="product-name">
             {item.itemName}
           </p>
-          <p className="product-price">{item.itemPrice}円</p>
+          <p className="product-price">¥{item.itemPrice}円</p>
         </div>
       </div>
     </a>
@@ -70,6 +70,9 @@ const ProductList = ({ keyword }) => {
       <button onClick={handleNext} className="carousel-button carousel-button-right">
         <MdChevronRight />
       </button>
+      <div className="page-indicator">
+        {`Page ${currentPage + 1} of ${totalPages}`}
+      </div>
     </div>
   );
 };

@@ -71,10 +71,9 @@
   position: absolute;
   /* 绝对定位按钮 */
   top: 50%;
-  /* 垂直居中按钮 */
-  transform: translateY(-50%);
   /* 确保按钮完全居中 */
   padding: 8px 16px;
+  margin-left: 0px;
   cursor: pointer;
   z-index: 1;
   /* 确保按钮在商品列表上方 */
@@ -95,4 +94,18 @@
 .carousel-button-right {
   right: 0;
   /* 按钮靠右 */
+}
+
+.page-indicator {
+  text-align: center;
+  margin-top: 200px; /* 上の要素との間隔を広げる */
+  margin-bottom: 40px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+
+  /* ページの中央に配置するためのスタイル */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
