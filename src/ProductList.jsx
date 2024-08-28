@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import { MdChevronRight, MdChevronLeft } from 'react-icons/md';
 import "./ProductList.css";
 
@@ -28,8 +28,14 @@ const ProductList = ({ productKeyword }) => {
     const [currentPage, setCurrentPage] = useState(0);
     const itemsPerPage = 2;
     const hitNum = 10;
+    const initialRender = useRef(true);
 
     useEffect(() => {
+        if (initialRender.current) {
+            initialRender.current = false;
+            return;
+        }
+
         const encodedKeyword = encodeURIComponent(productKeyword);
         const apiUrl = `https://app.rakuten.co.jp/services/api/IchibaItem/Search/20220601?format=json&keyword=${encodedKeyword}&hits=${hitNum}&applicationId=1077188838370490177`;
 
@@ -42,8 +48,6 @@ const ProductList = ({ productKeyword }) => {
     if (!productData) {
         return <div>Loading...</div>;
     }
-
-    console.log(productData)
 
     const totalPages = Math.ceil(productData.Items.length / itemsPerPage);
 

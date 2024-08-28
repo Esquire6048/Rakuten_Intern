@@ -1,18 +1,18 @@
 import ProductList from "./ProductList.jsx";
 import RecipeList from "./RecipeList.jsx";
 
-const RelatedProductAndRecipe = ({ category, keyword }) => {
+const RelatedProductAndRecipe = ({ category, relatedKeyword }) => {
     if (category === "product") {
         return (
             <div>
-                <h2>{keyword}に関連する商品</h2>
-                <ProductList productKeyword={keyword}/>
+                <h2>{relatedKeyword}に関連する商品</h2>
+                <ProductList productKeyword={relatedKeyword}/>
             </div>
         )
     } else if (category === "recipe") {
         return (<div>
-            <h2>{keyword}に関連するレシピ</h2>
-            <RecipeList recipeKeyword={keyword}/>
+            <h2>関連するレシピ</h2>
+            <RecipeList recipeKeyword={relatedKeyword}/>
         </div>)
     } else {
         /* empty */

@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 // import "./RecipeList.css";
-
 
 const RecipeResult = ({ item }) => {
     return (
@@ -12,9 +11,9 @@ const RecipeResult = ({ item }) => {
                     className="recipe-image"
                 />
                 <div className="recipe-info">
-                    <p className="recipe-title">
+                    <h2 className="recipe-title">
                         {item.recipeTitle}
-                    </p>
+                    </h2>
                     <p className="recipe-description">
                         {item.recipeDescription}
                     </p>
@@ -26,8 +25,14 @@ const RecipeResult = ({ item }) => {
 
 const RecipeList = ({ recipeKeyword }) => {
     const [recipeData, setRecipeData] = useState(null);
+    const initialRender = useRef(true);
 
     useEffect(() => {
+        if (initialRender.current) {
+            initialRender.current = false;
+            return;
+        }
+
         if (recipeKeyword) {
             const apiUrl = `https://app.rakuten.co.jp/services/api/Recipe/CategoryRanking/20170426?format=json&categoryId=${recipeKeyword}&applicationId=1077188838370490177`;
 
@@ -41,8 +46,6 @@ const RecipeList = ({ recipeKeyword }) => {
     if (!recipeData) {
         return <div>Loading...</div>;
     }
-
-    console.log(recipeData)
 
     return (
         <div className="recipe-result">
