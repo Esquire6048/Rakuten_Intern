@@ -74,11 +74,11 @@ button:hover {
 }
 
 .correct {
-  color: green;
+  color: green !important;
 }
 
 .wrong {
-  color: #BF0000;
+  color: #BF0000 !important;
 }
 
 .feedback-section p {
@@ -88,10 +88,19 @@ button:hover {
 }
 
 .large-feedback {
+  font-size: 15em;
+  /* フィードバックの大きさ */
+  color: #007bff;
+  margin: 0px 0;
+  animation: feedbackAnimation 1s ease-out;
+  /* アニメーションを追加 */
+}
+
+.large-feedback-text {
   font-size: 5em;
   /* フィードバックの大きさ */
   color: #007bff;
-  margin: 20px 0;
+  margin: 10px 0;
   animation: feedbackAnimation 1s ease-out;
   /* アニメーションを追加 */
 }

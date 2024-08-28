@@ -7,6 +7,8 @@ const Quiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [next, setNext] = useState(false);
   const [feedback, setFeedback] = useState(null);
+  const [feedbackClass, setFeedbackClass] = useState(""); //色を変える
+  const [feedbackMessage, setFeedbackMessage] = useState("");
   const [score, setScore] = useState(0);
   const [answers, setAnswers] = useState([]);
   const [showScore, setShowScore] = useState(false);
@@ -53,9 +55,13 @@ const Quiz = () => {
 
     if (newAnswer.correct) {
       setScore((prevScore) => prevScore + 1);
-      setFeedback("○");
+      setFeedback("〇");
+      setFeedbackClass("correct");
+      setFeedbackMessage("正解");
     } else {
-      setFeedback("×");
+      setFeedback("✕");
+      setFeedbackClass("wrong");
+      setFeedbackMessage("不正解");
     }
 
     setAnswers((prevAnswers) => [...prevAnswers, newAnswer]);
@@ -113,7 +119,7 @@ const Quiz = () => {
                 <tr className={item.correct ? "correct" : "wrong"} key={index}>
                   <td>{item.question}</td>
                   <td>{item.answer}</td>
-                  <td>{item.correct ? "○" : "×"}</td>
+                  <td>{item.correct ? "〇" : "✕"}</td>
                 </tr>
               ))}
             </tbody>
@@ -129,15 +135,20 @@ const Quiz = () => {
           <h2>{quizData[currentQuestion].question}</h2>
           {next ? (
             <div className="feedback-section">
-              <h2 className="large-feedback">{feedback}</h2>
+              <h2 className={`large-feedback ${feedbackClass}`}>{feedback}</h2>
+              <h2 className={`large-feedback-text ${feedbackClass}`}>{feedbackMessage}</h2>
               {currentAnswer && !currentAnswer.correct && (
                 <p>間違った答え: {currentAnswer.answer}</p>
               )}
               <p>解答：{quizData[currentQuestion].correct}</p>
               <p>解説：{quizData[currentQuestion].explanation}</p>
               <div>
-                <h2>{quizData[currentQuestion].keyword}に関連する商品</h2>
-                <ProductList keyword={quizData[currentQuestion].keyword} />
+                {quizData[currentQuestion].keyword && (
+                  <>
+                    <h2>{quizData[currentQuestion].keyword}に関連する商品</h2>
+                    <ProductList keyword={quizData[currentQuestion].keyword} />
+                  </>
+                )}
               </div>
               <button onClick={goToNextQuestion}>{currentQuestion + 1 === quizData.length ? "スコアを見る" : "次の問題へ"}</button>
               <button onClick={navigateToHome}>タイトルに戻る</button>
