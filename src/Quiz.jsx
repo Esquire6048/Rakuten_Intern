@@ -107,12 +107,9 @@ const Quiz = () => {
               {currentAnswer && !currentAnswer.correct && (
                 <p>間違った答え: {currentAnswer.answer}</p>
               )}
-              <p>解答</p>
-              <p>{quizData[currentQuestion].correct}</p>
-              <p>解説</p>
-              <p>{quizData[currentQuestion].explanation}</p>
-              <p>商品URL</p>
-              <p><a href={quizData[currentQuestion].url}>{quizData[currentQuestion].url}</a></p>
+              <p>解答：{quizData[currentQuestion].correct}</p>
+              <p>解説：{quizData[currentQuestion].explanation}</p>
+              <p>商品URL：<a target="_blank" rel="noopener noreferrer" href={quizData[currentQuestion].url}>{quizData[currentQuestion].url}</a></p>
               <button onClick={goToNextQuestion}>{currentQuestion + 1 === quizData.length ? "スコアを見る" : "次の問題へ"}</button>
               <button onClick={navigateToHome}>タイトルに戻る</button>
             </div>
