@@ -11,6 +11,7 @@ const Quiz = () => {
   const [answers, setAnswers] = useState([]);
   const [showScore, setShowScore] = useState(false);
   const [quizData, setQuizData] = useState(null); // quizDataを状態として宣言
+  const [currentAnswer, setCurrentAnswer] = useState(null);
 
   // データを非同期で取得
   useEffect(() => {
@@ -24,6 +25,7 @@ const Quiz = () => {
       question: quizData[currentQuestion].question,
       options: quizData[currentQuestion].options,
       answer: answer,
+      correctAnswer: quizData[currentQuestion].correct,
       correct: quizData[currentQuestion].correct === answer,
     };
 
@@ -35,6 +37,7 @@ const Quiz = () => {
     }
 
     setAnswers((prevAnswers) => [...prevAnswers, newAnswer]);
+    setCurrentAnswer(newAnswer);
     setNext(true);
   };
 
@@ -49,6 +52,7 @@ const Quiz = () => {
 
     setNext(false);
     setFeedback(null);
+    setCurrentAnswer(null);
   };
 
   const navigate = useNavigate();
@@ -79,13 +83,12 @@ const Quiz = () => {
                   <td>合否</td>
                 </tr>
                 </thead>
-
                 <tbody>
                 {answers.map((item, index) => (
                     <tr className={item.correct ? "correct" : "wrong"} key={index}>
                       <td>{item.question}</td>
                       <td>{item.answer}</td>
-                      <td>{item.correct ? "●" : "×"}</td>
+                      <td>{item.correct ? "○" : "×"}</td>
                     </tr>
                 ))}
                 </tbody>
@@ -102,6 +105,9 @@ const Quiz = () => {
               {next ? (
                   <div className="feedback-section">
                     <h2 className="large-feedback">{feedback}</h2>
+                    {currentAnswer && !currentAnswer.correct && (
+                        <p>間違った答え: {currentAnswer.answer}</p>
+                    )}
                     <p>解答</p>
                     <p>{quizData[currentQuestion].correct}</p>
                     <p>解説</p>
@@ -110,7 +116,9 @@ const Quiz = () => {
                       <h2>{quizData[currentQuestion].keyword}に関連する商品</h2>
                       <ProductList keyword={quizData[currentQuestion].keyword}/>
                     </div>
-                    <button onClick={goToNextQuestion}>次の問題へ</button>
+                    <button
+                        onClick={goToNextQuestion}>{currentQuestion + 1 === quizData.length ? "スコアを見る" : "次の問題へ"}</button>
+                    <button onClick={navigateToHome}>タイトルに戻る</button>
                   </div>
               ) : (
                   <div className="answer-section">
@@ -123,6 +131,7 @@ const Quiz = () => {
                           {option}
                         </button>
                     ))}
+                    <button onClick={navigateToHome} className="answer-section-gohome">タイトルに戻る</button>
                   </div>
               )}
             </div>
