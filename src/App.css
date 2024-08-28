@@ -13,6 +13,24 @@
   color: #BF0000;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out forwards;
+  opacity: 0;
+  /* 最初は非表示 */
+}
+
 .quiz-container {
   text-align: center;
   display: flex;
@@ -78,11 +96,11 @@ button:hover {
 }
 
 .correct {
-  color: green;
+  color: green !important;
 }
 
 .wrong {
-  color: #BF0000;
+  color: #BF0000 !important;
 }
 
 .feedback-section p {
@@ -92,10 +110,19 @@ button:hover {
 }
 
 .large-feedback {
+  font-size: 15em;
+  /* フィードバックの大きさ */
+  color: #007bff;
+  margin: 0px 0;
+  animation: feedbackAnimation 1s ease-out;
+  /* アニメーションを追加 */
+}
+
+.large-feedback-text {
   font-size: 5em;
   /* フィードバックの大きさ */
   color: #007bff;
-  margin: 20px 0;
+  margin: 10px 0;
   animation: feedbackAnimation 1s ease-out;
   /* アニメーションを追加 */
 }
@@ -157,6 +184,7 @@ button:hover {
 }
 
 .quiz-option-button {
+  opacity: 0;
   padding: 12px 20px;
   font-size: 1.2em;
   cursor: pointer;
