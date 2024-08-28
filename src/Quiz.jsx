@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import { useNavigate } from "react-router-dom";
-import ProductList from "./ProductList";
+import RelatedProductAndRecipe from "./RelatedProductAndRecipe.jsx";
 
 const Quiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -25,24 +25,24 @@ const Quiz = () => {
     //console.log('API URL:', apiConfig.apiUrl);
     // サーバーからデータを取得
     fetch(`${apiConfig.apiUrl}/questions`)
-      .then(response => {
-        console.log('Response:', response); // レスポンスを確認
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then(data => {
-        setQuizData(data); // 状態にセット
-      })
-      .catch(error => {
-        console.error('Fetch error:', error);
-        // サーバーに接続できなかった場合、ローカルのJSONファイルからデータを取得
-        fetch('/questions.json')
-          .then(response => response.json())
-          .then(data => setQuizData(data)) // 状態にセット
-          .catch(err => console.error('Local fetch error:', err));
-      });
+        .then(response => {
+          console.log('Response:', response); // レスポンスを確認
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => {
+          setQuizData(data); // 状態にセット
+        })
+        .catch(error => {
+          console.error('Fetch error:', error);
+          // サーバーに接続できなかった場合、ローカルのJSONファイルからデータを取得
+          fetch('/questions.json')
+              .then(response => response.json())
+              .then(data => setQuizData(data)) // 状態にセット
+              .catch(err => console.error('Local fetch error:', err));
+        });
   }, []);
 
   useEffect(() => {
@@ -111,79 +111,78 @@ const Quiz = () => {
   }
 
   return (
-    <div className="quiz-container">
-      {showScore ? (
-        <div className="score-section">
-          <h1>スコア</h1>
-          <h2 className="final-score">
-            {score}/{quizData.length}
-          </h2>
-          {score !== 0 ? <h2 className="get-point"><span>{score}</span>ポイント獲得！</h2> : <h2 className="get-point">残念！</h2>}
-          <table className="answer-table">
-            <thead>
-              <tr>
-                <td>質問</td>
-                <td>あなたの解答</td>
-                <td>合否</td>
-              </tr>
-            </thead>
-            <tbody>
-              {answers.map((item, index) => (
-                <tr className={item.correct ? "correct" : "wrong"} key={index}>
-                  <td>{item.question}</td>
-                  <td>{item.answer}</td>
-                  <td>{item.correct ? "〇" : "✕"}</td>
+      <div className="quiz-container">
+        {showScore ? (
+            <div className="score-section">
+              <h1>スコア</h1>
+              <h2 className="final-score">
+                {score}/{quizData.length}
+              </h2>
+              {score !== 0 ? <h2 className="get-point"><span>{score}</span>ポイント獲得！</h2> : <h2 className="get-point">残念！</h2>}
+              <table className="answer-table">
+                <thead>
+                <tr>
+                  <td>質問</td>
+                  <td>あなたの解答</td>
+                  <td>合否</td>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-          <button onClick={navigateToQuiz}>もう一度やる</button>
-          <button onClick={navigateToHome}>タイトルに戻る</button>
-        </div>
-      ) : (
-        <div className="question-section">
-          <h1>
-            問題 {currentQuestion + 1}/{quizData.length}
-          </h1>
-          <h2>{quizData[currentQuestion].question}</h2>
-          {next ? (
-            <div className="feedback-section">
-              <h2 className={`large-feedback ${feedbackClass}`}>{feedback}</h2>
-              <h2 className={`large-feedback-text ${feedbackClass}`}>{feedbackMessage}</h2>
-              {currentAnswer && !currentAnswer.correct && (
-                <p>間違った答え: {currentAnswer.answer}</p>
-              )}
-              <p>解答：{quizData[currentQuestion].correct}</p>
-              <p>解説：{quizData[currentQuestion].explanation}</p>
-              <div>
-                {quizData[currentQuestion].keyword && (
-                  <>
-                    <h2>{quizData[currentQuestion].keyword}に関連する商品</h2>
-                    <ProductList keyword={quizData[currentQuestion].keyword} />
-                  </>
-                )}
-              </div>
-              <button onClick={goToNextQuestion}>{currentQuestion + 1 === quizData.length ? "スコアを見る" : "次の問題へ"}</button>
+                </thead>
+                <tbody>
+                {answers.map((item, index) => (
+                    <tr className={item.correct ? "correct" : "wrong"} key={index}>
+                      <td>{item.question}</td>
+                      <td>{item.answer}</td>
+                      <td>{item.correct ? "〇" : "✕"}</td>
+                    </tr>
+                ))}
+                </tbody>
+              </table>
+              <button onClick={navigateToQuiz}>もう一度やる</button>
               <button onClick={navigateToHome}>タイトルに戻る</button>
             </div>
-          ) : (
-            <div className="answer-section">
-              {quizData[currentQuestion].options.map((option, index) => (
-                <button
-                  className={`quiz-option-button option-${index} ${fadeInClass[index] || ""}`}
-                  key={index}
-                  onClick={() => handleAnswer(option)}
-                >
-                  {option}
-                </button>
-              ))}
-              <button onClick={navigateToHome} className="answer-section-gohome">タイトルに戻る</button>
+        ) : (
+            <div className="question-section">
+              <h1>
+                問題 {currentQuestion + 1}/{quizData.length}
+              </h1>
+              <h2>{quizData[currentQuestion].question}</h2>
+              {next ? (
+                  <div className="feedback-section">
+                    <h2 className={`large-feedback ${feedbackClass}`}>{feedback}</h2>
+                    <h2 className={`large-feedback-text ${feedbackClass}`}>{feedbackMessage}</h2>
+                    {currentAnswer && !currentAnswer.correct && (
+                        <p>間違った答え: {currentAnswer.answer}</p>
+                    )}
+                    <p>解答：{quizData[currentQuestion].correct}</p>
+                    <p>解説：{quizData[currentQuestion].explanation}</p>
+                    <div>
+                      {quizData[currentQuestion].keyword && (
+                          <>
+                            <RelatedProductAndRecipe category={quizData[currentQuestion].category} relatedKeyword={quizData[currentQuestion].keyword} />
+                          </>
+                      )}
+                    </div>
+                    <button onClick={goToNextQuestion}>{currentQuestion + 1 === quizData.length ? "スコアを見る" : "次の問題へ"}</button>
+                    <button onClick={navigateToHome}>タイトルに戻る</button>
+                  </div>
+              ) : (
+                  <div className="answer-section">
+                    {quizData[currentQuestion].options.map((option, index) => (
+                        <button
+                            className={`quiz-option-button option-${index} ${fadeInClass[index] || ""}`}
+                            key={index}
+                            onClick={() => handleAnswer(option)}
+                        >
+                          {option}
+                        </button>
+                    ))}
+                    <button onClick={navigateToHome} className="answer-section-gohome">タイトルに戻る</button>
+                  </div>
+              )}
             </div>
-          )}
-        </div>
-      )
-      }
-    </div >
+        )
+        }
+      </div >
   );
 };
 
