@@ -9,6 +9,10 @@
   font-size: 3.2em;
 }
 
+.home span {
+  color: #BF0000;
+}
+
 .quiz-container {
   text-align: center;
   display: flex;
