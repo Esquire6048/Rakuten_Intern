@@ -5,6 +5,7 @@
     "options": ["楽天", "Dena", "Lineヤフー", "サイバーエージェント"],
     "correct": "楽天",
     "explanation": "解説解説",
+    "relatedCatagory": "product",
     "keyword": "楽天",
     "url": "https://www.rakuten.co.jp/"
   },
@@ -14,6 +15,7 @@
     "options": ["カンガルー", "カンガルー", "ペンギン", "カバ"],
     "correct": "ペンギン",
     "explanation": "解説解説",
+    "relatedCatagory": "product",
     "keyword": "ペンギン",
     "url": "https://www.rakuten.co.jp/"
   }

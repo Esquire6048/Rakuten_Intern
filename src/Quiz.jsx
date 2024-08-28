@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import { useNavigate } from "react-router-dom";
-import ProductList from "./ProductList";
+import ProductList from "./ProductList.jsx";
 
 const Quiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -15,8 +15,8 @@ const Quiz = () => {
   // データを非同期で取得
   useEffect(() => {
     fetch('/questions.json')
-      .then(response => response.json())
-      .then(data => setQuizData(data)); // 状態にセット
+        .then(response => response.json())
+        .then(data => setQuizData(data)); // 状態にセット
   }, []);
 
   const handleAnswer = (answer) => {
@@ -64,70 +64,70 @@ const Quiz = () => {
   }
 
   return (
-    <div className="quiz-container">
-      {showScore ? (
-        <div className="score-section">
-          <h1>スコア</h1>
-          <h2 className="final-score">
-            {score}/{quizData.length}
-          </h2>
-          <table className="answer-table">
-            <thead>
-              <tr>
-                <td>質問</td>
-                <td>あなたの解答</td>
-                <td>合否</td>
-              </tr>
-            </thead>
-
-            <tbody>
-              {answers.map((item, index) => (
-                <tr className={item.correct ? "correct" : "wrong"} key={index}>
-                  <td>{item.question}</td>
-                  <td>{item.answer}</td>
-                  <td>{item.correct ? "●" : "×"}</td>
+      <div className="quiz-container">
+        {showScore ? (
+            <div className="score-section">
+              <h1>スコア</h1>
+              <h2 className="final-score">
+                {score}/{quizData.length}
+              </h2>
+              <table className="answer-table">
+                <thead>
+                <tr>
+                  <td>質問</td>
+                  <td>あなたの解答</td>
+                  <td>合否</td>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-          <button onClick={navigateToQuiz}>もう一度やる</button>
-          <button onClick={navigateToHome}>タイトルに戻る</button>
-        </div>
-      ) : (
-        <div className="question-section">
-          <h1>
-            問題 {currentQuestion + 1}/{quizData.length}
-          </h1>
-          <h2>{quizData[currentQuestion].question}</h2>
-          {next ? (
-            <div className="feedback-section">
-              <h2 className="large-feedback">{feedback}</h2>
-              <p>解答</p>
-              <p>{quizData[currentQuestion].correct}</p>
-              <p>解説</p>
-              <p>{quizData[currentQuestion].explanation}</p>
-              <div>
-                <h2>{quizData[currentQuestion].keyword}に関連する商品</h2>
-                <ProductList keyword={quizData[currentQuestion].keyword} />
-              </div>
-              <button onClick={goToNextQuestion}>次の問題へ</button>
+                </thead>
+
+                <tbody>
+                {answers.map((item, index) => (
+                    <tr className={item.correct ? "correct" : "wrong"} key={index}>
+                      <td>{item.question}</td>
+                      <td>{item.answer}</td>
+                      <td>{item.correct ? "●" : "×"}</td>
+                    </tr>
+                ))}
+                </tbody>
+              </table>
+              <button onClick={navigateToQuiz}>もう一度やる</button>
+              <button onClick={navigateToHome}>タイトルに戻る</button>
             </div>
-          ) : (
-              <div className="answer-section">
-                {quizData[currentQuestion].options.map((option, index) => (
-                    <button
-                  className={`quiz-option-button option-${index}`}
-                  key={index}
-                  onClick={() => handleAnswer(option)}
-                >
-                  {option}
-                </button>
-              ))}
+        ) : (
+            <div className="question-section">
+              <h1>
+                問題 {currentQuestion + 1}/{quizData.length}
+              </h1>
+              <h2>{quizData[currentQuestion].question}</h2>
+              {next ? (
+                  <div className="feedback-section">
+                    <h2 className="large-feedback">{feedback}</h2>
+                    <p>解答</p>
+                    <p>{quizData[currentQuestion].correct}</p>
+                    <p>解説</p>
+                    <p>{quizData[currentQuestion].explanation}</p>
+                    <div>
+                      <h2>{quizData[currentQuestion].keyword}に関連する商品</h2>
+                      <ProductList keyword={quizData[currentQuestion].keyword}/>
+                    </div>
+                    <button onClick={goToNextQuestion}>次の問題へ</button>
+                  </div>
+              ) : (
+                  <div className="answer-section">
+                    {quizData[currentQuestion].options.map((option, index) => (
+                        <button
+                            className={`quiz-option-button option-${index}`}
+                            key={index}
+                            onClick={() => handleAnswer(option)}
+                        >
+                          {option}
+                        </button>
+                    ))}
+                  </div>
+              )}
             </div>
-          )}
-        </div>
-      )}
-    </div>
+        )}
+      </div>
   );
 };
 

@@ -1,36 +1,34 @@
 import React, { useEffect, useState } from 'react';
+import "./ProductList.css";
 
 const Product = ({ item }) => {
     return (
-        <a href={item.itemUrl} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>
-            <div className="product" style={{ display: 'flex', alignItems: 'center' }}>
+        <a href={item.itemUrl} target="_blank" rel="noopener noreferrer" className="product-link">
+            <div className="product">
                 <img
                     src={item.mediumImageUrls[0].imageUrl}
                     alt={item.itemName}
-                    style={{ maxWidth: '100px', marginRight: '16px' }}
+                    className="product-image"
                 />
-                <div style={{ display: 'flex', flexDirection: 'column', maxWidth: '600px' }}>
-                    <p style={{
-                        margin: 0,
-                        overflow: 'hidden',
-                        whiteSpace: 'nowrap',
-                        textOverflow: 'ellipsis'
-                    }}>
+                <div className="product-info">
+                    <p className="product-name">
                         {item.itemName}
                     </p>
-                    <p style={{ margin: 0, color: '#bf0000' }}>¥{item.itemPrice}円</p>
+                    <p className="product-price">¥{item.itemPrice}円</p>
                 </div>
             </div>
         </a>
     );
 };
 
-const ProductList = ({keyword}) => {
+const ProductList = ({ keyword }) => {
     const [productData, setProductData] = useState(null);
+    const [currentPage, setCurrentPage] = useState(0);
+    const itemsPerPage = 2;
 
     useEffect(() => {
         const encodedKeyword = encodeURIComponent(keyword);
-        const apiUrl = `https://app.rakuten.co.jp/services/api/IchibaItem/Search/20220601?format=json&keyword=${encodedKeyword}&hits=3&applicationId=1077188838370490177`;
+        const apiUrl = `https://app.rakuten.co.jp/services/api/IchibaItem/Search/20220601?format=json&keyword=${encodedKeyword}&hits=10&applicationId=1077188838370490177`;
 
         fetch(apiUrl)
             .then(response => response.json())
@@ -42,11 +40,31 @@ const ProductList = ({keyword}) => {
         return <div>Loading...</div>;
     }
 
+    const totalPages = Math.ceil(productData.Items.length / itemsPerPage);
+
+    const getCurrentItems = () => {
+        const start = currentPage * itemsPerPage;
+        const end = start + itemsPerPage;
+        return productData.Items.slice(start, end);
+    };
+
+    const handlePrevious = () => {
+        setCurrentPage((prevPage) => (prevPage > 0 ? prevPage - 1 : totalPages - 1));
+    };
+
+    const handleNext = () => {
+        setCurrentPage((prevPage) => (prevPage < totalPages - 1 ? prevPage + 1 : 0));
+    };
+
     return (
-        <div className="product-list">
-            {productData.Items.map((product, index) => (
-                <Product key={index} item={product.Item} />
-            ))}
+        <div className="product-carousel">
+            <button onClick={handlePrevious} className="carousel-button carousel-button-left">Previous</button>
+            <div className="product-list">
+                {getCurrentItems().map((product, index) => (
+                    <Product key={index} item={product.Item} />
+                ))}
+            </div>
+            <button onClick={handleNext} className="carousel-button carousel-button-right">Next</button>
         </div>
     );
 };
