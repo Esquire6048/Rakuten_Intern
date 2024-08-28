@@ -12,12 +12,34 @@ const Quiz = () => {
   const [showScore, setShowScore] = useState(false);
   const [quizData, setQuizData] = useState(null); // quizDataを状態として宣言
   const [currentAnswer, setCurrentAnswer] = useState(null);
+  const apiConfig = {
+    //環境変数: root の .env に対応
+    apiUrl: import.meta.env.VITE_API_URL,
+  };
 
-  // データを非同期で取得
+  // データを同期で取得
   useEffect(() => {
-    fetch('/questions.json')
-      .then(response => response.json())
-      .then(data => setQuizData(data)); // 状態にセット
+    //console.log('API URL:', apiConfig.apiUrl);
+    // サーバーからデータを取得
+    fetch(`${apiConfig.apiUrl}/questions`)
+      .then(response => {
+        console.log('Response:', response); // レスポンスを確認
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        setQuizData(data); // 状態にセット
+      })
+      .catch(error => {
+        console.error('Fetch error:', error);
+        // サーバーに接続できなかった場合、ローカルのJSONファイルからデータを取得
+        fetch('/questions.json')
+          .then(response => response.json())
+          .then(data => setQuizData(data)) // 状態にセット
+          .catch(err => console.error('Local fetch error:', err));
+      });
   }, []);
 
   const handleAnswer = (answer) => {
