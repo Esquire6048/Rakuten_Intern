@@ -90,6 +90,15 @@ button:hover {
   transform: scale(1.05);
 }
 
+/* 正しい順路を示すボタンの色 */
+.regular-route {
+  background-color: #BF0000 !important;
+}
+
+.regular-route:hover {
+  background-color: #d60000 !important;
+}
+
 .carousel-button .carousel-button-right {
   transform: scale(1);
 }
@@ -214,7 +223,14 @@ button:hover {
 }
 
 .answer-section-gohome {
-  width: 30% !important;
+  background-color: #000000;
+  margin-top: 1px;
+  font-size: 0.8em !important;
+  width: 20% !important;
+}
+
+.answer-section-gohome:hover {
+  background-color: #00000080;
 }
 
 .answer-table {

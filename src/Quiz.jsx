@@ -162,7 +162,7 @@ const Quiz = () => {
                           </>
                       )}
                     </div>
-                    <button onClick={goToNextQuestion}>{currentQuestion + 1 === quizData.length ? "スコアを見る" : "次の問題へ"}</button>
+                    <button onClick={goToNextQuestion} className="regular-route">{currentQuestion + 1 === quizData.length ? "スコアを見る" : "次の問題へ"}</button>
                     <button onClick={navigateToHome}>タイトルに戻る</button>
                   </div>
               ) : (
