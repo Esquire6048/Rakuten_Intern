@@ -6,6 +6,7 @@
 .recipe {
     display: flex;
     align-items: center;
+    justify-content: center; /* 添加这个属性 */
 }
 
 .recipe-image {
@@ -22,6 +23,10 @@
     color: #bf0000;
 }
 
+.recipe-info {
+    flex-grow: 1;
+}
+
 .recipe-description {
     margin: 0;
     text-align: left;
@@ -30,13 +35,6 @@
 }
 
 .recipe-result {
-    align-items: center;
-    gap: 16px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    flex: 1;
-    max-height: 400px;
-    padding: 0;
-    margin: 0 50px;
-    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 600px; /* 根据需要调整最大宽度 */
 }
