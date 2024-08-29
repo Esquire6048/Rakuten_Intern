@@ -4,6 +4,10 @@
   text-align: center;
 }
 
+.loading {
+  color: #000;
+}
+
 .home h1 {
   font-size: 3.2em;
   padding: 0 20px;
@@ -234,6 +238,7 @@ button:hover {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   max-width: 900px;
   margin-bottom: 20px;
+  animation: feedbackAnimation 1.8s ease-out;
 }
 
 .score-section h1 {
