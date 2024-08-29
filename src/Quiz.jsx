@@ -107,7 +107,12 @@ const Quiz = () => {
   };
 
   if (!quizData) {
-    return <div className="loading">Loading...</div>; // データが読み込まれるまで「Loading...」を表示
+    return (
+      <div className="loading-wrp">
+        <div className="loading">Loading...</div>
+      </div>
+    );
+    // データが読み込まれるまで「Loading...」を表示
   }
 
   return (

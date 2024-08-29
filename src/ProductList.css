@@ -101,3 +101,29 @@
   display: inline-block;
   border-bottom: 2px solid #Bf0000;
 }
+
+@media (max-width: 768px) {
+  .recipe-title {
+    white-space: wrap !important;
+    margin-top: 10px !important;
+  }
+
+  .recipe {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-button {
+    top: 41%;
+  }
+
+  .product-name {
+    white-space: wrap !important;
+    margin-top: 10px !important;
+  }
+
+  .product-image {
+    margin-right: 0;
+  }
+}
