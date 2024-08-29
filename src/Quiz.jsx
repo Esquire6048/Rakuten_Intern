@@ -25,24 +25,24 @@ const Quiz = () => {
   useEffect(() => {
     // サーバーからデータを取得
     fetch(`${apiConfig.apiUrl}/questions?k=${apiConfig.questionNum}`)
-        .then(response => {
-          console.log('Response:', response); // レスポンスを確認
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          return response.json();
-        })
-        .then(data => {
-          setQuizData(data); // 状態にセット
-        })
-        .catch(error => {
-          console.error('Fetch error:', error);
-          // サーバーに接続できなかった場合、ローカルのJSONファイルからデータを取得
-          fetch('/questions.json')
-              .then(response => response.json())
-              .then(data => setQuizData(data)) // 状態にセット
-              .catch(err => console.error('Local fetch error:', err));
-        });
+      .then(response => {
+        console.log('Response:', response); // レスポンスを確認
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        setQuizData(data); // 状態にセット
+      })
+      .catch(error => {
+        console.error('Fetch error:', error);
+        // サーバーに接続できなかった場合、ローカルのJSONファイルからデータを取得
+        fetch('/questions.json')
+          .then(response => response.json())
+          .then(data => setQuizData(data)) // 状態にセット
+          .catch(err => console.error('Local fetch error:', err));
+      });
   }, []);
 
   useEffect(() => {
@@ -107,7 +107,7 @@ const Quiz = () => {
   };
 
   if (!quizData) {
-    return <div>Loading...</div>; // データが読み込まれるまで「Loading...」を表示
+    return <div className="loading">Loading...</div>; // データが読み込まれるまで「Loading...」を表示
   }
 
   return (
