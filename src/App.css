@@ -115,9 +115,25 @@ button:hover {
   color: #BF0000 !important;
 }
 
+.sentence-title {
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
 .feedback-section p {
   font-size: 1.2em;
   margin-bottom: 10px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.explanation {
+  text-align: left; /* テキストを左揃え */
+  word-wrap: break-word; /* 単語の折り返しを許可 */
+  margin: 0; /* デフォルトのマージンをリセット */
+  margin-top: 5px !important;
+  margin-bottom: 20px !important;
 }
 
 .wrong-answer {
