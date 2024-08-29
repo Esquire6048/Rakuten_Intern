@@ -40,7 +40,7 @@
   position: relative;
   width: 100%;
   overflow: hidden;
-  padding-bottom: 60px;
+  padding-bottom: 30px;
 }
 
 .product-list {
@@ -66,7 +66,7 @@
 
 .carousel-button {
   position: absolute;
-  top: 34%;
+  top: 37%;
   padding: 8px 16px;
   cursor: pointer;
   z-index: 1;
@@ -91,16 +91,10 @@
 .page-indicator {
   text-align: center;
   /* 上の要素との間隔を広げる */
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   font-size: 20px;
   font-weight: bold;
   color: #333;
-
-  /* ページの中央に配置するためのスタイル */
-  position: absolute;
-  bottom: -30px;
-  left: 49.5%;
-  transform: translateX(-50%);
 }
 
 .products-relatedto-rakuten {
