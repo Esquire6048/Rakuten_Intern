@@ -87,8 +87,16 @@ button {
 }
 
 button:hover {
-  background-color: #2980b9;
   transform: scale(1.05);
+}
+
+/* 正しい順路を示すボタンの色 */
+.regular-route {
+  background-color: #BF0000 !important;
+}
+
+.regular-route:hover {
+  background-color: #d60000 !important;
 }
 
 .carousel-button .carousel-button-right {
@@ -121,19 +129,21 @@ button:hover {
 }
 
 .large-feedback {
-  font-size: 15em;
+  font-size: 10em;
   /* フィードバックの大きさ */
   color: #007bff;
-  margin: 0px 0;
+  margin-top: 10px;   /* 上のマージン */
+  margin-bottom: -20px; /* 下のマージン */
   animation: feedbackAnimation 1s ease-out;
   /* アニメーションを追加 */
 }
 
 .large-feedback-text {
-  font-size: 5em;
+  font-size: 3em;
   /* フィードバックの大きさ */
   color: #007bff;
-  margin: 10px 0;
+  margin-top: 0px;   /* 上のマージン */
+  margin-bottom: 50px; /* 下のマージン */
   animation: feedbackAnimation 1s ease-out;
   /* アニメーションを追加 */
 }
@@ -190,7 +200,7 @@ button:hover {
 .option-1:hover,
 .option-2:hover,
 .option-3:hover {
-  background-color: #000;
+  background-color: #ff0000;
   transform: scale(1.05);
 }
 
@@ -224,7 +234,14 @@ button:hover {
 }
 
 .answer-section-gohome {
-  width: 30% !important;
+  background-color: #000000;
+  margin-top: 1px;
+  font-size: 0.8em !important;
+  width: 20% !important;
+}
+
+.answer-section-gohome:hover {
+  background-color: #00000080;
 }
 
 .answer-table {
