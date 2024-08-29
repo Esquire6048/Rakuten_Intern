@@ -5,13 +5,13 @@ const RelatedProductAndRecipe = ({ category, relatedKeyword }) => {
     if (category === "product") {
         return (
             <div>
-                <h2>{relatedKeyword}に関連する商品</h2>
+                <h2>{relatedKeyword}をお探しですか？</h2>
                 <ProductList productKeyword={relatedKeyword}/>
             </div>
         )
     } else if (category === "recipe") {
         return (<div>
-            <h2>関連するレシピ</h2>
+            <h2>賞味期限が近い備蓄食料をおいしく調理</h2>
             <RecipeList recipeID={relatedKeyword}/>
         </div>)
     } else {
