@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import exampleImage from './images/example_word.png';
 
 const Home = () => {
   const navigate = useNavigate();
