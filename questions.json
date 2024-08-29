@@ -5,7 +5,7 @@
     "options": ["楽天", "Dena", "Lineヤフー", "サイバーエージェント"],
     "correct": "楽天",
     "explanation": "解説解説",
-    "category": "product",
+    "category": "Product",
     "keyword": "楽天",
     "url": "https://www.rakuten.co.jp/"
   },
@@ -15,7 +15,7 @@
     "options": ["カンガルー", "カンガルー", "ペンギン", "カバ"],
     "correct": "ペンギン",
     "explanation": "解説解説",
-    "category": "product",
+    "category": "Product",
     "keyword": "ペンギン",
     "url": "https://www.rakuten.co.jp/"
   },
@@ -25,7 +25,7 @@
     "options": ["長期保存がきく", "道具を使わずに開けられる", "冷や水を用いずに食べられる", "保存料や殺菌料を使わず"],
     "correct": "道具を使わずに開けられる",
     "explanation": "缶詰は、保存がきいてそのまま食べることができる非常食の定番です。デメリットは、缶切りがないと開けられない点です。缶切りなしで開けられるプルトップタイプを選んでおくといいでしょう。",
-    "category": "recipe",
+    "category": "Recipe",
     "keyword": "13-109-531",
     "url": "https://www.rakuten.co.jp/"
   },
@@ -35,7 +35,7 @@
     "options": ["味のバリエーションが豊富である", "軽量で持ち運びやすい", "道具を使わずに開けられる", "栄養バランスが良い"],
     "correct": "栄養バランスが良い",
     "explanation": "インスタントラーメンは炭水化物が中心で、栄養が偏りやすいです。ビタミンやミネラル、タンパク質が不足しがちであり、長期間の栄養補給には不向きです。缶詰には肉、魚、野菜など、バランスの取れた栄養が含まれているものが多く、インスタントラーメンに比べて栄養補給に優れています。",
-    "category": "recipe",
+    "category": "Recipe",
     "keyword": "13-109-110",
     "url": "https://www.rakuten.co.jp/"
   }
