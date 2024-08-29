@@ -43,3 +43,9 @@
     display: inline-block;
     border-bottom: 2px solid #Bf0000;
 }
+
+@media (max-width: 768px) {
+    .product {
+        flex-direction: column;
+    }
+}
