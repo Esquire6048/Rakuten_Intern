@@ -51,6 +51,7 @@
   width: 100%;
   padding: 30px;
   margin-bottom: 20px;
+  max-width: 750px;
 }
 
 h1 {
@@ -137,11 +138,13 @@ button:hover {
 }
 
 .wrong-answer {
-  color: #BF0000;
+  color: #BF0000 !important;
+  font-size: 1.3em !important;
 }
 
 .correct-answer {
-  color: green;
+  color: green !important;
+  font-size: 1.3em !important;
 }
 
 .explanation {
