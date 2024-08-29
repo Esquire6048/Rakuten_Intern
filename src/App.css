@@ -92,11 +92,11 @@ button:hover {
 
 /* 正しい順路を示すボタンの色 */
 .regular-route {
-  background-color: #BF0000 !important;
+  background-color: #00a1e9 !important;
 }
 
 .regular-route:hover {
-  background-color: #d60000 !important;
+  background-color: #00a1e9af !important;
 }
 
 .carousel-button .carousel-button-right {
@@ -235,7 +235,7 @@ button:hover {
 
 .answer-section-gohome {
   background-color: #000000;
-  margin-top: 1px;
+  margin-top: 30px !important;
   font-size: 0.8em !important;
   width: 20% !important;
 }
@@ -256,6 +256,7 @@ button:hover {
   padding: 12px;
   text-align: center;
   font-size: 1.1em;
+  max-width: 500px;
 }
 
 .answer-table thead {

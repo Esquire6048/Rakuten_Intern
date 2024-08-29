@@ -122,9 +122,9 @@ const Quiz = () => {
           <table className="answer-table">
             <thead>
               <tr>
-                <td>質問</td>
+                <td>問題</td>
                 <td>あなたの解答</td>
-                <td>合否</td>
+                <td>正誤</td>
               </tr>
             </thead>
             <tbody>
@@ -151,9 +151,9 @@ const Quiz = () => {
               <h2 className={`large-feedback ${feedbackClass}`}>{feedback}</h2>
               <h2 className={`large-feedback-text ${feedbackClass}`}>{feedbackMessage}</h2>
               {currentAnswer && !currentAnswer.correct && (
-                <p className="wrong-answer">間違った答え: {currentAnswer.answer}</p>
+                <p className="wrong-answer">あなたの解答: {currentAnswer.answer}</p>
               )}
-              <p className="correct-answer">解答：{quizData[currentQuestion].correct}</p>
+              <p className="correct-answer">正答：{quizData[currentQuestion].correct}</p>
               <p className="explanation">解説：{quizData[currentQuestion].explanation}</p>
               <div>
                 {quizData[currentQuestion].keyword && (
@@ -162,7 +162,7 @@ const Quiz = () => {
                   </>
                 )}
               </div>
-              <button onClick={goToNextQuestion}>{currentQuestion + 1 === quizData.length ? "スコアを見る" : "次の問題へ"}</button>
+              <button onClick={goToNextQuestion} className="regular-route">{currentQuestion + 1 === quizData.length ? "スコアを見る" : "次の問題へ"}</button>
               <button onClick={navigateToHome}>タイトルに戻る</button>
             </div>
           ) : (
