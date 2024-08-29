@@ -96,6 +96,7 @@ const Quiz = () => {
     setNext(false);
     setFeedback(null);
     setCurrentAnswer(null);
+    window.scrollTo(0, 0);
   };
 
   const navigate = useNavigate();
