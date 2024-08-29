@@ -25,24 +25,24 @@ const Quiz = () => {
   useEffect(() => {
     // サーバーからデータを取得
     fetch(`${apiConfig.apiUrl}/questions?k=${apiConfig.questionNum}`)
-        .then(response => {
-          console.log('Response:', response); // レスポンスを確認
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          return response.json();
-        })
-        .then(data => {
-          setQuizData(data); // 状態にセット
-        })
-        .catch(error => {
-          console.error('Fetch error:', error);
-          // サーバーに接続できなかった場合、ローカルのJSONファイルからデータを取得
-          fetch('/questions.json')
-              .then(response => response.json())
-              .then(data => setQuizData(data)) // 状態にセット
-              .catch(err => console.error('Local fetch error:', err));
-        });
+      .then(response => {
+        console.log('Response:', response); // レスポンスを確認
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        setQuizData(data); // 状態にセット
+      })
+      .catch(error => {
+        console.error('Fetch error:', error);
+        // サーバーに接続できなかった場合、ローカルのJSONファイルからデータを取得
+        fetch('/questions.json')
+          .then(response => response.json())
+          .then(data => setQuizData(data)) // 状態にセット
+          .catch(err => console.error('Local fetch error:', err));
+      });
   }, []);
 
   useEffect(() => {
@@ -96,6 +96,7 @@ const Quiz = () => {
     setNext(false);
     setFeedback(null);
     setCurrentAnswer(null);
+    window.scrollTo(0, 0);
   };
 
   const navigate = useNavigate();
@@ -107,7 +108,12 @@ const Quiz = () => {
   };
 
   if (!quizData) {
-    return <div>Loading...</div>; // データが読み込まれるまで「Loading...」を表示
+    return (
+      <div className="loading-wrp">
+        <div className="loading">Loading...</div>
+      </div>
+    );
+    // データが読み込まれるまで「Loading...」を表示
   }
 
   return (
@@ -118,13 +124,13 @@ const Quiz = () => {
           <h2 className="final-score">
             {score}/{quizData.length}
           </h2>
-          {score !== 0 ? <h2 className="get-point"><span>{score}</span>ポイント獲得！</h2> : <h2 className="get-point">残念！</h2>}
+          {score !== 0 ? <h2 className="get-point">楽天ポイント<span>{score}</span>ポイント獲得！</h2> : <h2 className="get-point">残念！</h2>}
           <table className="answer-table">
             <thead>
               <tr>
-                <td>質問</td>
+                <td>問題</td>
                 <td>あなたの解答</td>
-                <td>合否</td>
+                <td>正誤</td>
               </tr>
             </thead>
             <tbody>
@@ -150,11 +156,13 @@ const Quiz = () => {
             <div className="feedback-section">
               <h2 className={`large-feedback ${feedbackClass}`}>{feedback}</h2>
               <h2 className={`large-feedback-text ${feedbackClass}`}>{feedbackMessage}</h2>
+              <h3 className="sentence-title">解答</h3>
               {currentAnswer && !currentAnswer.correct && (
-                <p className="wrong-answer">間違った答え: {currentAnswer.answer}</p>
+                <p className="wrong-answer">あなたの解答：{currentAnswer.answer}</p>
               )}
-              <p className="correct-answer">解答：{quizData[currentQuestion].correct}</p>
-              <p className="explanation">解説：{quizData[currentQuestion].explanation}</p>
+              <p className="correct-answer">正答：{quizData[currentQuestion].correct}</p>
+              <h3 className="sentence-title">解説</h3>
+              <p className="explanation">{quizData[currentQuestion].explanation}</p>
               <div>
                 {quizData[currentQuestion].keyword && (
                   <>
@@ -162,7 +170,7 @@ const Quiz = () => {
                   </>
                 )}
               </div>
-              <button onClick={goToNextQuestion}>{currentQuestion + 1 === quizData.length ? "スコアを見る" : "次の問題へ"}</button>
+              <button onClick={goToNextQuestion} className="regular-route">{currentQuestion + 1 === quizData.length ? "スコアを見る" : "次の問題へ"}</button>
               <button onClick={navigateToHome}>タイトルに戻る</button>
             </div>
           ) : (

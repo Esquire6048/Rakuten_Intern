@@ -2,15 +2,55 @@
   max-width: 1280px;
   margin: 0 auto;
   text-align: center;
-  padding: 20px;
+}
+
+.loading-wrp {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading {
+  color: #000;
+}
+
+.home-wrp {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.home {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
 }
 
 .home h1 {
   font-size: 3.2em;
+  margin-bottom: 30px;
+  text-align: left;
 }
 
-.home span {
+.home-right span {
+  font-size: 1.3em;
   color: #BF0000;
+}
+
+.home-right button {
+  width: 500px;
+  padding: 0.5em 1.2em;
+  font-size: 1.3em;
+}
+
+/*画像のレイアウト*/
+.example-image {
+  width: 30%;
+  height: auto;
 }
 
 @keyframes fadeIn {
@@ -37,6 +77,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 0 30px;
+  margin-top: 60px;
 }
 
 .question-section {
@@ -44,9 +86,9 @@
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   width: 100%;
-  width: 100%;
   padding: 30px;
   margin-bottom: 20px;
+  max-width: 750px;
 }
 
 h1 {
@@ -92,11 +134,11 @@ button:hover {
 
 /* 正しい順路を示すボタンの色 */
 .regular-route {
-  background-color: #BF0000 !important;
+  background-color: #00a1e9 !important;
 }
 
 .regular-route:hover {
-  background-color: #d60000 !important;
+  background-color: #00a1e9af !important;
 }
 
 .carousel-button .carousel-button-right {
@@ -111,29 +153,55 @@ button:hover {
   color: #BF0000 !important;
 }
 
+.sentence-title {
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
 .feedback-section p {
   font-size: 1.2em;
   margin-bottom: 10px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.explanation {
+  text-align: left;
+  /* テキストを左揃え */
+  word-wrap: break-word;
+  /* 単語の折り返しを許可 */
+  margin: 0;
+  /* デフォルトのマージンをリセット */
+  margin-top: 5px !important;
+  margin-bottom: 20px !important;
 }
 
 .wrong-answer {
-  color: #BF0000;
+  color: #BF0000 !important;
+  font-size: 1.3em !important;
 }
 
 .correct-answer {
-  color: green;
+  color: green !important;
+  font-size: 1.3em !important;
 }
 
 .explanation {
   color: #333;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: left;
 }
 
 .large-feedback {
   font-size: 10em;
   /* フィードバックの大きさ */
   color: #007bff;
-  margin-top: 10px;   /* 上のマージン */
-  margin-bottom: -20px; /* 下のマージン */
+  margin-top: 10px;
+  /* 上のマージン */
+  margin-bottom: -20px;
+  /* 下のマージン */
   animation: feedbackAnimation 1s ease-out;
   /* アニメーションを追加 */
 }
@@ -142,8 +210,10 @@ button:hover {
   font-size: 3em;
   /* フィードバックの大きさ */
   color: #007bff;
-  margin-top: 0px;   /* 上のマージン */
-  margin-bottom: 50px; /* 下のマージン */
+  margin-top: 0px;
+  /* 上のマージン */
+  margin-bottom: 50px;
+  /* 下のマージン */
   animation: feedbackAnimation 1s ease-out;
   /* アニメーションを追加 */
 }
@@ -227,6 +297,7 @@ button:hover {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   max-width: 900px;
   margin-bottom: 20px;
+  animation: feedbackAnimation 1.8s ease-out;
 }
 
 .score-section h1 {
@@ -235,9 +306,9 @@ button:hover {
 
 .answer-section-gohome {
   background-color: #000000;
-  margin-top: 1px;
+  margin-top: 30px !important;
   font-size: 0.8em !important;
-  width: 20% !important;
+  width: 150px !important;
 }
 
 .answer-section-gohome:hover {
@@ -256,6 +327,7 @@ button:hover {
   padding: 12px;
   text-align: center;
   font-size: 1.1em;
+  max-width: 500px;
 }
 
 .answer-table thead {
@@ -269,4 +341,38 @@ button:hover {
 
 .answer-table tbody tr.wrong {
   background-color: #f8d7da;
+}
+
+@media (max-width: 768px) {
+  .example-image {
+    width: 100%;
+  }
+
+  .home {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .home h1 {
+    font-size: 2em;
+    text-align: center;
+  }
+
+  .question-section h1 {
+    margin-top: 40px;
+  }
+
+  .home-right button {
+    margin: 0 auto;
+    width: 95%;
+    margin-bottom: 10px;
+  }
+
+  .quiz-container {
+    margin-top: 0;
+  }
+
+  .score-section {
+    margin-top: 60px;
+  }
 }

@@ -6,6 +6,7 @@
 .recipe {
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .recipe-image {
@@ -20,29 +21,31 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     color: #bf0000;
+}
 
+.recipe-info {
+    flex-grow: 1;
 }
 
 .recipe-description {
     margin: 0;
     text-align: left;
+    text-overflow: ellipsis;
     color: #333333;
 }
 
 .recipe-result {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    flex: 1;
-    max-height: 400px;
-    padding: 0;
-    margin: 0 50px;
-    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 600px;
 }
 
 .recipes-relatedto-rakuten {
     display: inline-block;
     border-bottom: 2px solid #Bf0000;
+}
+
+@media (max-width: 768px) {
+    .product {
+        flex-direction: column;
+    }
 }
