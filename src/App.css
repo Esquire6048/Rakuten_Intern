@@ -17,6 +17,15 @@
   color: #BF0000;
 }
 
+/*画像のレイアウト*/
+.example-image {
+  width: 500px;
+  height: auto;
+  border-radius: 8px;
+  padding: 0px;
+  margin-top: -200px;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
