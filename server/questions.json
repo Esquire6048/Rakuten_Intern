@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "question": "What is the capital of France?",
+    "options": [
+      "Paris",
+      "London",
+      "Berlin",
+      "Madrid"
+    ],
+    "correct": "Paris",
+    "explanation": "default explanation",
+    "keyword": "Paris",
+    "url": "https://books.rakuten.co.jp/rb/17822973/?variantId=17822973"
+  },
+  {
+    "id": 2,
+    "question": "What is 2 + 2?",
+    "options": [
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "correct": "4",
+    "explanation": "default explanation",
+    "keyword": "Rakuten",
+    "url": "https://item.rakuten.co.jp/atelier-plum/ptko020/?iasid=07rpp_10095___e3-m0c33oai-6u-406fdf7f-ba13-46a0-bec2-ba7341ebd812"
+  },
+  {
+    "id": 3,
+    "question": "What is the largest planet in our solar system?",
+    "options": [
+      "Earth",
+      "Mars",
+      "Jupiter",
+      "Saturn"
+    ],
+    "correct": "Jupiter",
+    "explanation": "default explanation",
+    "keyword": "Rakuten",
+    "url": "https://item.rakuten.co.jp/atelier-plum/ptko020/?iasid=07rpp_10095___e3-m0c33oai-6u-406fdf7f-ba13-46a0-bec2-ba7341ebd812"
+  },
+  {
+    "id": 4,
+    "question": "Who wrote \"To Kill a Mockingbird\"?",
+    "options": [
+      "Harper Lee",
+      "Mark Twain",
+      "Ernest Hemingway",
+      "F. Scott Fitzgerald"
+    ],
+    "correct": "Harper Lee",
+    "explanation": "default explanation",
+    "keyword": "Rakuten",
+    "url": "https://item.rakuten.co.jp/atelier-plum/ptko020/?iasid=07rpp_10095___e3-m0c33oai-6u-406fdf7f-ba13-46a0-bec2-ba7341ebd812"
+  },
+  {
+    "id": 5,
+    "question": "What is the boiling point of water?",
+    "options": [
+      "90°C",
+      "100°C",
+      "110°C",
+      "120°C"
+    ],
+    "correct": "100°C",
+    "explanation": "default explanation",
+    "keyword": "Rakuten",
+    "url": "https://item.rakuten.co.jp/atelier-plum/ptko020/?iasid=07rpp_10095___e3-m0c33oai-6u-406fdf7f-ba13-46a0-bec2-ba7341ebd812"
+  },
+  {
+    "id": 6,
+    "question": "What is the chemical symbol for gold?",
+    "options": [
+      "Au",
+      "Ag",
+      "Pb",
+      "Fe"
+    ],
+    "correct": "Au",
+    "explanation": "default explanation",
+    "keyword": "Rakuten",
+    "url": "https://item.rakuten.co.jp/atelier-plum/ptko020/?iasid=07rpp_10095___e3-m0c33oai-6u-406fdf7f-ba13-46a0-bec2-ba7341ebd812"
+  },
+  {
+    "id": 7,
+    "question": "Who painted the Mona Lisa?",
+    "options": [
+      "Leonardo da Vinci",
+      "Vincent van Gogh",
+      "Pablo Picasso",
+      "Claude Monet"
+    ],
+    "correct": "Leonardo da Vinci",
+    "explanation": "default explanation",
+    "keyword": "Rakuten",
+    "url": "https://item.rakuten.co.jp/atelier-plum/ptko020/?iasid=07rpp_10095___e3-m0c33oai-6u-406fdf7f-ba13-46a0-bec2-ba7341ebd812"
+  },
+  {
+    "id": 8,
+    "question": "What is the smallest prime number?",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "5"
+    ],
+    "correct": "2",
+    "explanation": "default explanation",
+    "keyword": "Rakuten",
+    "url": "https://item.rakuten.co.jp/atelier-plum/ptko020/?iasid=07rpp_10095___e3-m0c33oai-6u-406fdf7f-ba13-46a0-bec2-ba7341ebd812"
+  },
+  {
+    "id": 9,
+    "question": "What is the speed of light?",
+    "options": [
+      "300,000 km/s",
+      "150,000 km/s",
+      "450,000 km/s",
+      "600,000 km/s"
+    ],
+    "correct": "300,000 km/s",
+    "explanation": "default explanation",
+    "keyword": "Rakuten",
+    "url": "https://item.rakuten.co.jp/atelier-plum/ptko020/?iasid=07rpp_10095___e3-m0c33oai-6u-406fdf7f-ba13-46a0-bec2-ba7341ebd812"
+  },
+  {
+    "id": 10,
+    "question": "What is the tallest mountain in the world?",
+    "options": [
+      "Mount Everest",
+      "K2",
+      "Kangchenjunga",
+      "Lhotse"
+    ],
+    "correct": "Mount Everest",
+    "explanation": "default explanation",
+    "keyword": "Rakuten",
+    "url": "https://item.rakuten.co.jp/atelier-plum/ptko020/?iasid=07rpp_10095___e3-m0c33oai-6u-406fdf7f-ba13-46a0-bec2-ba7341ebd812"
+  }
+]

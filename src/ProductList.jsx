@@ -70,6 +70,9 @@ const ProductList = ({ keyword }) => {
       <button onClick={handleNext} className="carousel-button carousel-button-right">
         <MdChevronRight />
       </button>
+      <div className="page-indicator">
+        {`Page ${currentPage + 1} of ${totalPages}`}
+      </div>
     </div>
   );
 };
