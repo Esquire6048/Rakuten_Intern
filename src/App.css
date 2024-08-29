@@ -126,6 +126,9 @@ button:hover {
 
 .explanation {
   color: #333;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: left;
 }
 
 .large-feedback {
