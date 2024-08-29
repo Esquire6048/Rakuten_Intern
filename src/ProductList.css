@@ -70,6 +70,7 @@
   cursor: pointer;
   z-index: 1;
   border: none;
+  margin: 0;
 }
 
 .carousel-button:focus {
