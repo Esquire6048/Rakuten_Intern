@@ -40,6 +40,7 @@
   position: relative;
   width: 100%;
   overflow: hidden;
+  padding-bottom: 60px;
 }
 
 .product-list {
@@ -65,7 +66,7 @@
 
 .carousel-button {
   position: absolute;
-  top: 42%;
+  top: 34%;
   padding: 8px 16px;
   cursor: pointer;
   z-index: 1;
@@ -89,7 +90,6 @@
 
 .page-indicator {
   text-align: center;
-  margin-top: 200px;
   /* 上の要素との間隔を広げる */
   margin-bottom: 40px;
   font-size: 20px;
@@ -98,7 +98,8 @@
 
   /* ページの中央に配置するためのスタイル */
   position: absolute;
-  left: 50%;
+  bottom: -30px;
+  left: 49.5%;
   transform: translateX(-50%);
 }
 
