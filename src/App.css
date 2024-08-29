@@ -2,11 +2,11 @@
   max-width: 1280px;
   margin: 0 auto;
   text-align: center;
-  padding: 20px;
 }
 
 .home h1 {
   font-size: 3.2em;
+  padding: 0 20px;
 }
 
 .home span {
@@ -132,8 +132,10 @@ button:hover {
   font-size: 10em;
   /* フィードバックの大きさ */
   color: #007bff;
-  margin-top: 10px;   /* 上のマージン */
-  margin-bottom: -20px; /* 下のマージン */
+  margin-top: 10px;
+  /* 上のマージン */
+  margin-bottom: -20px;
+  /* 下のマージン */
   animation: feedbackAnimation 1s ease-out;
   /* アニメーションを追加 */
 }
@@ -142,8 +144,10 @@ button:hover {
   font-size: 3em;
   /* フィードバックの大きさ */
   color: #007bff;
-  margin-top: 0px;   /* 上のマージン */
-  margin-bottom: 50px; /* 下のマージン */
+  margin-top: 0px;
+  /* 上のマージン */
+  margin-bottom: 50px;
+  /* 下のマージン */
   animation: feedbackAnimation 1s ease-out;
   /* アニメーションを追加 */
 }
