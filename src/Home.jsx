@@ -8,6 +8,7 @@ const Home = () => {
 
   return (
     <div className="home">
+      <img src={exampleImage} alt="Example" className="example-image"/>
       <h1>正解数だけ<span>楽天ポイント</span>獲得！楽天防災クイズ！</h1>
       <button onClick={navigateToQuiz} className="regular-route">クイズにチャレンジ</button>
       <a target="_blank" rel="noopener noreferrer" href="https://www.rakuten.co.jp" >
