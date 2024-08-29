@@ -49,7 +49,7 @@ const RecipeList = ({ recipeID }) => {
 
     return (
         <div className="recipe-result">
-            <RecipeResult item={recipeData.result[1]} />
+            <RecipeResult item={recipeData.result[0]}/>
         </div>
     );
 };

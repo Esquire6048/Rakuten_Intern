@@ -15,27 +15,27 @@ const Product = ({ item }) => {
           <p className="product-name">
             {item.itemName}
           </p>
-          <p className="product-price">¥{item.itemPrice}円</p>
+          <p className="product-price">{item.itemPrice}円</p>
         </div>
       </div>
     </a>
   );
 };
 
-const ProductList = ({ keyword }) => {
+const ProductList = ({ productKeyword }) => {
   const [productData, setProductData] = useState(null);
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 2;
 
   useEffect(() => {
-    const encodedKeyword = encodeURIComponent(keyword);
+    const encodedKeyword = encodeURIComponent(productKeyword);
     const apiUrl = `https://app.rakuten.co.jp/services/api/IchibaItem/Search/20220601?format=json&keyword=${encodedKeyword}&hits=10&applicationId=1077188838370490177`;
 
     fetch(apiUrl)
       .then(response => response.json())
       .then(data => setProductData(data))
       .catch(error => console.error('Error fetching the product data:', error));
-  }, [keyword]);
+  }, [productKeyword]);
 
   if (!productData) {
     return <div>Loading...</div>;
