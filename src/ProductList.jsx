@@ -58,22 +58,24 @@ const ProductList = ({ productKeyword }) => {
   };
 
   return (
-    <div className="product-carousel">
-      <button onClick={handlePrevious} className="carousel-button carousel-button-left">
-        <MdChevronLeft />
-      </button>
-      <div className="product-list">
-        {getCurrentItems().map((product, index) => (
-          <Product key={index} item={product.Item} />
-        ))}
+    <>
+      <div className="product-carousel">
+        <button onClick={handlePrevious} className="carousel-button carousel-button-left">
+          <MdChevronLeft />
+        </button>
+        <div className="product-list">
+          {getCurrentItems().map((product, index) => (
+            <Product key={index} item={product.Item} />
+          ))}
+        </div>
+        <button onClick={handleNext} className="carousel-button carousel-button-right">
+          <MdChevronRight />
+        </button>
       </div>
-      <button onClick={handleNext} className="carousel-button carousel-button-right">
-        <MdChevronRight />
-      </button>
       <div className="page-indicator">
         {`Page ${currentPage + 1} of ${totalPages}`}
       </div>
-    </div>
+    </>
   );
 };
 
