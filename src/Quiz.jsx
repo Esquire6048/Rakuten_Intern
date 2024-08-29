@@ -150,11 +150,13 @@ const Quiz = () => {
             <div className="feedback-section">
               <h2 className={`large-feedback ${feedbackClass}`}>{feedback}</h2>
               <h2 className={`large-feedback-text ${feedbackClass}`}>{feedbackMessage}</h2>
+              <h3 className="sentence-title">解答</h3>
               {currentAnswer && !currentAnswer.correct && (
                 <p className="wrong-answer">あなたの解答: {currentAnswer.answer}</p>
               )}
               <p className="correct-answer">正答：{quizData[currentQuestion].correct}</p>
-              <p className="explanation">解説：{quizData[currentQuestion].explanation}</p>
+              <h3 className="sentence-title">解説</h3>
+              <p className="explanation">{quizData[currentQuestion].explanation}</p>
               <div>
                 {quizData[currentQuestion].keyword && (
                   <>
