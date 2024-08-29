@@ -347,10 +347,6 @@ button:hover {
     width: 100%;
   }
 
-  .home-wrp {
-    display: flex;
-  }
-
   .home {
     flex-direction: column;
     justify-content: center;
@@ -366,6 +362,8 @@ button:hover {
   }
 
   .home-right button {
-    width: 100%;
+    margin: 0 auto;
+    width: 95%;
+    margin-bottom: 10px;
   }
 }
