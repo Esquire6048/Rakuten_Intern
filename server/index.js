@@ -36,7 +36,7 @@ app.get("/api/questions", (req, res) => {
 
         // 取得した ID を使って質問と対応する選択肢を取得
         const sqlSelectQuestions = `
-            SELECT q.id as questionID, q.content as questionText, q.explanation, q.keyword, q.url, 
+            SELECT q.id as questionID, q.content as questionText, q.explanation, q.keyword, q.url, q.category,
                    c.id as choiceID, c.content as choiceText, c.isAnswer
             FROM questions q
             LEFT JOIN choices c ON q.id = c.questionID
@@ -66,7 +66,8 @@ app.get("/api/questions", (req, res) => {
                         correct: null,
                         explanation: row.explanation,
                         keyword: row.keyword,
-                        url: row.url
+                        url: row.url,
+                        category: row.category
                     };
                 }
 
