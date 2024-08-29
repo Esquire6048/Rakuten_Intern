@@ -8,6 +8,11 @@
   align-items: center;
 }
 
+.product-list a:nth-child(odd) {
+  border-bottom: 2px solid #ebebeb;
+  padding-bottom: 20px;
+}
+
 .product-image {
   max-width: 100px;
   margin-right: 16px;
@@ -98,7 +103,8 @@
 
 .page-indicator {
   text-align: center;
-  margin-top: 200px; /* 上の要素との間隔を広げる */
+  margin-top: 200px;
+  /* 上の要素との間隔を広げる */
   margin-bottom: 40px;
   font-size: 20px;
   font-weight: bold;
@@ -108,4 +114,9 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.products-relatedto-rakuten {
+  display: inline-block;
+  border-bottom: 2px solid #Bf0000;
 }

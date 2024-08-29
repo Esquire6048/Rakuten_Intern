@@ -41,3 +41,8 @@
     margin: 0 50px;
     box-sizing: border-box;
 }
+
+.recipes-relatedto-rakuten {
+    display: inline-block;
+    border-bottom: 2px solid #Bf0000;
+}
